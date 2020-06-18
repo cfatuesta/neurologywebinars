@@ -1,14 +1,21 @@
 
 <body>
-<header>
-  <h1>Neurology Webinars</h1>
-  <style type=text/css>
-    h1 {
-      text-align: center;   
-    }
-  </style>
-</header> 
+  <header>
+    <h1>Neurology Webinars</h1>
+    <style type=text/css>
+      body {
+        background-color: #35b9de;
+      }
+      h1 {
+        text-align: center; 
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 40px;
+        color:#ffffff;
+      }
+    </style>
+  </header> 
   <iframe 
+  id="ilae_yes_video"
   width="560" 
   height="315" 
   src="https://www.youtube.com/embed/X9tARByd1JM" 
@@ -24,10 +31,10 @@
     width: "800",
     height: "600",
     wkst: "2",
-    bgcolor: "#ffffff",
+    bgcolor: "#35b9de",
     ctz: tz,
     src: "bmV1cm9sb2d5d2ViaW5hcnNAZ21haWwuY29t",
-    color: "#039BE5",
+    color: "white",
     showNav: "1",
     showPrint: "0",
     showTz: "1",
@@ -42,6 +49,7 @@
   calendar.frameborder = "0";
   calendar.scrolling = "no";
   calendar.style = "border-width: 0";
-  document.body.appendChild(calendar);
+  var video = document.getElementById("ilae_yes_video");
+  document.body.insertBefore(calendar, video);
 </script>
 
