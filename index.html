@@ -1,0 +1,28 @@
+<body></body>
+<script type="text/javascript">
+  var calendar = document.createElement('iframe');
+  var tz = Intl.DateTimeFormat().resolvedOptions().timeZone;
+  var opts = {
+    width: "800",
+    height: "600",
+    wkst: "2",
+    bgcolor: "#ffffff",
+    ctz: tz,
+    src: "bmV1cm9sb2d5d2ViaW5hcnNAZ21haWwuY29t",
+    color: "#039BE5",
+    showNav: "1",
+    showPrint: "0",
+    showTz: "1",
+    mode: "WEEK",
+  };
+  var qs = Object.keys(opts).map(function(k) {
+    return k + "=" + encodeURIComponent(opts[k])
+  }).join("&");
+  calendar.src = "https://calendar.google.com/calendar/b/1/embed?" + qs;
+  calendar.width = "800";
+  calendar.height = "600";
+  calendar.frameborder = "0";
+  calendar.scrolling = "no";
+  calendar.style = "border-width: 0";
+  document.body.appendChild(calendar);
+</script>
