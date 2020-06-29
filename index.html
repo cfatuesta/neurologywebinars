@@ -1,67 +1,82 @@
-
-<body>
-  <header>
-    <h1>Neurology Webinars</h1>
-    <style type=text/css>
+<html>
+  <head>
+    <title>Neurology Webinars</title>
+    <style>
       body {
-        text-align:center;
-        background-color: #247BA0;
-      }
-    
-      h1 {
-        text-align: center; 
         font-family: Arial, Helvetica, sans-serif;
+        text-align: center;
+        background-color: #ffffff;
+      }
+
+      h1 {
+        text-align: center;
         font-size: 40px;
-        color:#B2DBBF;
+        color: navy;
+        margin-top: 50px;
+      }
+
+      div#ics {
+        margin-top: 50px;
+        margin-bottom: 100px;
+      }
+      div#calendar {
+        margin-top: 50px;
       }
     </style>
-  </header> 
-  <iframe 
-  id="ilae_yes_video"
-  width="560" 
-  height="315" 
-  src="https://www.youtube.com/embed/X9tARByd1JM" 
-  frameborder="0" 
-  allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
-  allowfullscreen>
-  </iframe>
-  <iframe 
-  id="app_withdrawal"
-  width="560" 
-  height="315" 
-  src="https://asmwithdrawal.shinyapps.io/outcome/" 
-  frameborder="0" 
-  allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
-  allowfullscreen>
-  </iframe>
-</body>
-<script type="text/javascript">
-  var calendar = document.createElement('iframe');
-  var tz = Intl.DateTimeFormat().resolvedOptions().timeZone;
-  var opts = {
-    width: "800",
-    height: "600",
-    wkst: "2",
-    bgcolor: "#247BA0",
-    ctz: tz,
-    src: "bmV1cm9sb2d5d2ViaW5hcnNAZ21haWwuY29t",
-    color: "white",
-    showNav: "1",
-    showPrint: "0",
-    showTz: "1",
-    showTitle: "0",
-    mode: "WEEK"
-  };
-  var qs = Object.keys(opts).map(function(k) {
-    return k + "=" + encodeURIComponent(opts[k])
-  }).join("&");
-  calendar.src = "https://calendar.google.com/calendar/b/1/embed?" + qs;
-  calendar.width = "800";
-  calendar.height = "600";
-  calendar.frameborder = "0";
-  calendar.scrolling = "no";
-  calendar.style = "border-width: 0";
-  var video = document.getElementById("ilae_yes_video");
-  document.body.insertBefore(calendar, video);
-</script>
+  </head>
 
+  <body>
+    <header>
+      <h1>Neurology Webinars</h1>
+    </header>
+    <div id="calendar"></div>
+    <div id="ics">
+      <a
+        href="https://calendar.google.com/calendar/ical/neurologywebinars%40gmail.com/public/basic.ics"
+      >
+        Download calendar
+      </a>
+    </div>
+
+    <iframe
+      width="560"
+      height="315"
+      src="https://www.youtube.com/embed/videoseries?list=PLTcEDcaqco75w5H_bVhjbs2HaYeTMSNmL"
+      frameborder="0"
+      allow="autoplay; encrypted-media"
+      allowfullscreen
+    ></iframe>
+
+    <script type="text/javascript">
+      var calendar = document.createElement("iframe");
+      var tz = Intl.DateTimeFormat().resolvedOptions().timeZone;
+      var opts = {
+        width: "800",
+        height: "600",
+        wkst: "2",
+        bgcolor: "white",
+        ctz: tz,
+        src: "bmV1cm9sb2d5d2ViaW5hcnNAZ21haWwuY29t",
+        color: "white",
+        showNav: "1",
+        showPrint: "0",
+        showTz: "1",
+        showTitle: "0",
+        mode: "WEEK"
+      };
+      var qs = Object.keys(opts)
+        .map(function(k) {
+          return k + "=" + encodeURIComponent(opts[k]);
+        })
+        .join("&");
+      calendar.src = "https://calendar.google.com/calendar/b/1/embed?" + qs;
+      calendar.width = "800";
+      calendar.height = "600";
+      calendar.frameborder = "0";
+      calendar.scrolling = "no";
+      calendar.style = "border-width: 0";
+      var div = document.getElementById("calendar");
+      div.append(calendar);
+    </script>
+  </body>
+</html>
